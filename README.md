@@ -1,0 +1,2 @@
+# ezgal
+Easy gallery
