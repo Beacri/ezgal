@@ -1,4 +1,7 @@
-$(document).ready(function(){
+function EZgal_init(id){
+	var contrainer = $(id);
+}
 
-	console.log('asdfads');
+$(document).ready(function(){
+	
 });
