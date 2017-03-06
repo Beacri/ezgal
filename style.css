@@ -52,7 +52,9 @@
 	width: 33%;
 
 }
-
+#ezgal-inner-left img{
+	max-width: 100%;
+}
 #ezgal-inner-right{
 	width: 62%;
 }
@@ -62,5 +64,11 @@
 }
 .ezgal-little-slides{
 	max-width: 100%;
-	overflow: hidden;
+	overflow-y: hidden;
+	border: solid #b6b6b6 3px;
+	height: 250px;
+}
+
+.ezgal-little-slides img{
+	display: block;
 }

@@ -41,7 +41,7 @@ function EZgal_init(id, option=null){
 		images_in_gallery +='<img src="'+v+'">';
 		console.log(k + ' '+v);
 	});
-	$('[data-ezgal-id='+miniwinhere+']').after('<div id="ezgal-cat-inner"><div id="ezgal-inner-left"><img src="'+option[id].thumbnail[0]+'"></div><div id="ezgal-inner-right"><h2 class="ezgal">'+option[id].title+'</h2><div>'+option[id].description+'</div><div class="ezgal-little-slides">'+images_in_gallery+'</div></div></div>');
+	$('[data-ezgal-id='+miniwinhere+']').after('<div id="ezgal-cat-inner"><div id="ezgal-inner-left"><img src="'+option[id].large[0]+'"></div><div id="ezgal-inner-right"><h2 class="ezgal">'+option[id].title+'</h2><div>'+option[id].description+'</div><div class="ezgal-little-slides">'+images_in_gallery+'</div></div></div>');
 
 
 	});
@@ -55,10 +55,10 @@ $(document).ready(function(){
 	[
 	{
 		'title' : 'Fajerwerki 1',
-		'description'   : 'opis',
+		'description'   : 'To jest zwykły opi spierwszego elementu w kategroi i jest tak samo dobry jak przypadkowe lorem ipsum ściagnięte z internetu a pisałem to szybciejniż googlałem. (to widać)',
 		'categoryimg' :'img/cat1.jpg',
 		'thumbnail' : ['img/250.jpg', 'img/250.jpg', 'img/250.jpg', 'img/250.jpg'],
-		'large' : ['img/250.jpg', 'img/250.jpg', 'img/250.jpg', 'img/250.jpg'],
+		'large' : ['img/big1.jpg', 'img/250.jpg', 'img/250.jpg', 'img/250.jpg'],
 		'tags'  : ['All']
 	},
 		{
