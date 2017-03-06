@@ -4,4 +4,63 @@
 
 .gallery-category{
 	float:left;
+	margin: 15px;
+	overflow: hidden;
+	height: 250px;
+	width: 250px;
+	cursor: pointer;
+}
+.gallery-category img{
+	opacity: 0.5;
+		height: 100%;
+	width: 100%;
+    -webkit-transition:all 300ms ease-in-out;
+    -moz-transition:all 300ms ease-in-out;
+    -o-transition:all 300ms ease-in-out;
+    transition:all 300ms ease-in-out;
+}
+
+.gallery-category img:hover{
+	height: 140%;
+	width: 140%;
+	opacity: 1;
+	margin-top:-20%;
+	margin-left: -20%;
+    -webkit-transition:all 300ms ease-in-out;
+    -moz-transition:all 300ms ease-in-out;
+    -o-transition:all 300ms ease-in-out;
+    transition:all 300ms ease-in-out;
+}
+
+#ezgal-cat-inner{
+	clear:both;
+	float:left;
+	width:100%;
+	height: 100%;
+
+}
+
+#ezgal-inner-left,#ezgal-inner-right{
+	padding: 20px;
+	border: solid black 1px;
+	float: left;
+	height: inherit;
+
+}
+
+#ezgal-inner-left{
+	width: 33%;
+
+}
+
+#ezgal-inner-right{
+	width: 62%;
+}
+
+.ezgal h2{
+
+}
+.ezgal-little-slides{
+	max-width: 100%;
+	overflow: hidden;
 }
