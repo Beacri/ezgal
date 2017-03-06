@@ -70,5 +70,15 @@
 }
 
 .ezgal-little-slides img{
-	display: block;
+	float: left;
+}
+.ezgal-wrapper-left, .ezgal-wrapper-right{
+	height: inherit;
+	background-color: red;
+	float: left;
+	width:25px;
+}
+.ezgal-wrapper{
+	width: 1000%;
+	height: inherit;
 }

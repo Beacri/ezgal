@@ -3,10 +3,9 @@ function EZgal_recalculate(){
 //kalkulacja gdzie jest pole dopokazywania zawartości
 	var last;
 $('.gallery-category').each(function(a,b){
-	// /console.log(b.offsetTop);
-	coords[a] = [b.offsetTop, b.offsetTop - last]
+	coords[a] = [b.offsetTop, b.offsetTop - last];
 	last = b.offsetTop;
-	//console.log(coords[a]);
+
 });
 return coords;
 }
@@ -23,7 +22,9 @@ function EZgal_init(id, option=null){
 		$(id).append('<div class="gallery-category" data-ezgal-id="'+k+'" title="'+v.title+'"><img src="'+catimg+'"></div>');
 	});
 	
-	$(window).resize(coords = EZgal_recalculate());
+	$(window).resize(function(){
+		coords = EZgal_recalculate();
+	});
 	$('.gallery-category').on('click', function(){
 		$('#ezgal-cat-inner').hide(500, function(){$(this).remove()});
 		var id = $(this).attr('data-ezgal-id');
@@ -41,7 +42,7 @@ function EZgal_init(id, option=null){
 		images_in_gallery +='<img src="'+v+'">';
 		console.log(k + ' '+v);
 	});
-	$('[data-ezgal-id='+miniwinhere+']').after('<div id="ezgal-cat-inner"><div id="ezgal-inner-left"><img src="'+option[id].large[0]+'"></div><div id="ezgal-inner-right"><h2 class="ezgal">'+option[id].title+'</h2><div>'+option[id].description+'</div><div class="ezgal-little-slides">'+images_in_gallery+'</div></div></div>');
+	$('[data-ezgal-id='+miniwinhere+']').after('<div id="ezgal-cat-inner"><div id="ezgal-inner-left"><img src="'+option[id].large[0]+'"></div><div id="ezgal-inner-right"><h2 class="ezgal">'+option[id].title+'</h2><div>'+option[id].description+'</div><div class="ezgal-little-slides"><div class="ezgal-wrapper"><div class="ezgal-wrapper-right"></div>'+images_in_gallery+'<div class="ezgal-wrapper-right"></div></div></div></div></div>');
 
 
 	});
