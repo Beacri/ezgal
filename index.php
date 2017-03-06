@@ -52,8 +52,8 @@
 
 
 
-</div>
-<div id='gallery'>
+
+<div id='gallery'></div>
 To jest przykładowy opis
 </body>
 </html>

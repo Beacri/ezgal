@@ -1,3 +1,7 @@
 .ezgal-cat{
 	display: inline-block;
 }
+
+.gallery-category{
+	float:left;
+}
