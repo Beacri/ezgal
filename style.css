@@ -82,3 +82,7 @@
 	width: 1000%;
 	height: inherit;
 }
+
+.ezgal-hidden{
+	display: none;
+}
