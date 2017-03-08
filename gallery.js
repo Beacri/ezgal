@@ -27,29 +27,23 @@ function EZgal_init(id, option=null){
 			});
 
 		}
-
 		var id = $(this).attr('data-ezgal-id');
-			//console.log("coords: "+$.ezgal.coords);
-			console.log("Kliknięte: "+id);
 		miniwinhere = $.ezgal.coords.length-1;// convert 1-based to 0-based
-			//console.log("miniwinhere startowe: "+miniwinhere);
 			id++;
 		for (var i = id; i <= $.ezgal.coords.length-1; i++) {
-			//console.log('i: ' + i);
 			if ($.ezgal.coords[i][1]>0) {
-				//console.log('wybrane: '+i);
 				miniwinhere = i-1;
 				break;
 			}
 		};
 		id--;
-		console.log("miniwinhere: " + miniwinhere);
+
 		var images_in_gallery = '';
-		console.log("Kliknięte: "+id);
+
 		$(option[id].thumbnail).each(function(k,v){
-			images_in_gallery +='<img src="'+v+'">';
+			images_in_gallery +='<li><img src="'+v+'"></li>';
 		});
-		$('[data-ezgal-id='+miniwinhere+']').after('<div id="ezgal-cat-inner" class="ezgal-hidden"><div id="ezgal-inner-left"><img src="'+option[id].large[0]+'"></div><div id="ezgal-inner-right"><h2 class="ezgal">'+option[id].title+'</h2><div>'+option[id].description+'</div><div class="ezgal-little-slides"><div class="ezgal-wrapper"><div class="ezgal-wrapper-right"></div>'+images_in_gallery+'<div class="ezgal-wrapper-right"></div></div></div></div></div>');
+		$('[data-ezgal-id='+miniwinhere+']').after('<div id="ezgal-cat-inner" class="ezgal-hidden"><div id="ezgal-inner-left"><img src="'+option[id].large[0]+'"></div><div id="ezgal-inner-right"><h2 class="ezgal">'+option[id].title+'</h2><div>'+option[id].description+'</div><div class="ezgal-little-slides"><div class="ezgal-wrapper"><ul class="egzal-incatgallery">'+images_in_gallery+'</ul></div></div></div></div>');
 		$('#ezgal-cat-inner').fadeIn(1000);
 
 		$('#ezgal-inner-left, #ezgal-inner-right').height(Math.max(Math.ceil($('#ezgal-inner-left').height()), Math.ceil($('#ezgal-inner-right').height())));
@@ -74,7 +68,7 @@ $(document).ready(function(){
 	},
 	{
 		'title' : 'Fajerwerki 2',
-		'description'   : 'opis',
+		'description'   : '<div>asdfasd sa fasd f <br><br><br><br><br><br>asf asd f<br><br>asfasf<br><br></div><div>asdfasd sa fasd f <br><br><br><br><br><br>asf asd f<br><br>asfasf<br><br></div><div>asdfasd sa fasd f <br><br><br><br><br><br>asf asd f<br><br>asfasf<br><br></div>',
 		'categoryimg' :'img/cat2.jpg',
 		'thumbnail' : ['img/250.jpg', 'img/250.jpg', 'img/250.jpg', 'img/250.jpg', 'img/250.jpg'],
 		'large' : ['img/250.jpg', 'img/250.jpg', 'img/250.jpg', 'img/250.jpg', 'img/250.jpg'],
