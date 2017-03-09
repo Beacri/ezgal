@@ -1,4 +1,4 @@
-$.ezgal = {'coords':[]};
+$.ezgal = {'coords':[], 'options':[]};
 function EZgal_recalculate(){
 //kalkulacja gdzie jest pole dopokazywania zawartości
 var last;
@@ -10,11 +10,13 @@ $('.gallery-category').each(function(a,b){
 return $.ezgal.coords;
 }
 
-function EZgal_init(id, option=null){
+function EZgal_init(id, options){
+	$.ezgal.options = options;
 	var contrainer = $(id);
-	$.each(option, function(k,v){
+
+	$.each($.ezgal.options, function(k,v){
 		if (v.categoryimg) {catimg = v.categoryimg;}else{catimg = v.thumbnail[0];}
-		$(id).append('<div class="gallery-category" data-ezgal-id="'+k+'" title="'+v.title+'"><img src="'+catimg+'"></div>');
+		$(id).append('<div class="gallery-category" data-ezgal-id="'+k+'" title="'+v.title+'"><img src="'+catimg+'"><div class="ezgal-cat-title"><span>'+v.title+'<hr class="ezgal-title-underline"></span></div></div>');
 	});
 	
 	$(window).resize(function(){$.ezgal.coords = EZgal_recalculate();});
@@ -40,15 +42,20 @@ function EZgal_init(id, option=null){
 
 		var images_in_gallery = '';
 
-		$(option[id].thumbnail).each(function(k,v){
-			images_in_gallery +='<li><img src="'+v+'"></li>';
+		$($.ezgal.options[id].thumbnail).each(function(k,v){
+			images_in_gallery +='<li class="ezgal-little" data-ezgal-little-id="'+k+'"><img src="'+v+'"></li>';
 		});
-		$('[data-ezgal-id='+miniwinhere+']').after('<div id="ezgal-cat-inner" class="ezgal-hidden"><div id="ezgal-inner-left"><img src="'+option[id].large[0]+'"></div><div id="ezgal-inner-right"><h2 class="ezgal">'+option[id].title+'</h2><div>'+option[id].description+'</div><div class="ezgal-little-slides"><div class="ezgal-wrapper"><ul class="egzal-incatgallery">'+images_in_gallery+'</ul></div></div></div></div>');
+		$('[data-ezgal-id='+miniwinhere+']').after('<div id="ezgal-cat-inner" class="ezgal-hidden"><div id="ezgal-inner-left"><img src="'+$.ezgal.options[id].large[0]+'"></div><div id="ezgal-inner-right"><h2 class="ezgal">'+$.ezgal.options[id].title+'</h2><div>'+$.ezgal.options[id].description+'</div><div class="ezgal-little-slides"><div class="ezgal-wrapper"><ul class="egzal-incatgallery">'+images_in_gallery+'</ul></div></div></div></div>');
 		$('#ezgal-cat-inner').fadeIn(1000);
 
 		$('#ezgal-inner-left, #ezgal-inner-right').height(Math.max(Math.ceil($('#ezgal-inner-left').height()), Math.ceil($('#ezgal-inner-right').height())));
 
+		//add bigger preview handlers
+		$('.ezgal-little').on('click', function(){
+			var id = $(this).attr('data-ezgal-little-id');
+			$('#ezgal-inner-left').html('<img src="'+$.ezgal.options[id].large[0]+'"></div>');
 
+		});
 	});
 
 }
