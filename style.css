@@ -50,6 +50,10 @@
 	border: solid black 1px;
 	float: left;
 	height: inherit;
+		-webkit-transition:all 300ms ease-in-out;
+    -moz-transition:all 300ms ease-in-out;
+    -o-transition:all 300ms ease-in-out;
+    transition:all 300ms ease-in-out;
 
 }
 
@@ -67,6 +71,9 @@
 
 .ezgal h2{
 
+}
+.ezgal-little img{
+	cursor: pointer;
 }
 .ezgal-little-slides{
 	max-width: 100%;
@@ -123,4 +130,31 @@ vertical-align: middle;
 }
 .gallery-category:hover > .ezgal-cat-title{
 top: 0px;
+}
+
+.ezgal-overlay{
+height: 200%;
+width: 200%;
+background-color: rgba(128,128,128,0.5);
+position: fixed;
+top: -100%;
+left: -100%;
+}
+
+body.noscroll{
+	overflow: hidden;
+}
+#container.noscroll{
+	filter: blur(5px);
+}
+
+#ezgal-preview-insider img{
+	border:solid #81818180  4px;
+}
+#ezgal-preview-insider{
+position: fixed;
+top: 0px;
+margin: auto;
+/*background-color: rgba(0,0,128,0.5);*/
+text-align: center;
 }
